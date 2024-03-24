@@ -1,0 +1,49 @@
+# Stage 1: Build the frontend
+FROM node:latest as frontend-builder
+COPY frontend /src/frontend
+WORKDIR /src/frontend
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+RUN npm install
+RUN npm run build
+
+# Stage 2: Runtime environment setup
+FROM python:3.9 as runtime
+ENV DEBIAN_FRONTEND=noninteractive
+ENV NODE_ENV=production
+
+# Copy backend code into the container
+COPY backend /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+
+# Install required packages
+RUN apt update && apt -y install mariadb-server nginx supervisor && \
+    rm -rf /var/lib/apt/lists/*
+
+# Configure Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the frontend build from the previous stage
+COPY --from=frontend-builder /src/frontend/build /usr/share/nginx/html
+
+# Copy database and supervisor configuration scripts
+COPY mysqld.sh /app/mysqld.sh
+COPY script.sql /app/script.sql
+RUN chmod +x /app/mysqld.sh
+
+# Environment setup script
+COPY setupEnv.py /app/setupEnv.py
+
+# Supervisor configuration
+COPY supervisord.conf /app/supervisord.conf
+
+# Ensure the data directory exists
+RUN mkdir /data
+
+# Start supervisor to run the services
+CMD ["/usr/bin/supervisord", "-c", "/app/supervisord.conf"]
+
+
+# docker build -t a1-p4b .
+# docker run -d --name a1 -p 8000:80 -p 8001:5000 -e REACT_APP_API_URL=http://localhost:8001/api/v1/ a1-p4b
