@@ -1,0 +1,19 @@
+chown: invalid option -- 'r'
+Try 'chown --help' for more information.
+Seeding MySQL database from /src/script.sql.
+240324 21:16:13 mysqld_safe Logging to syslog.
+240324 21:16:13 mysqld_safe Starting mariadbd daemon with databases from /var/lib/mysql
+Running seed script, please wait...
+ERROR 2002 (HY000): Can't connect to local server through socket '/run/mysqld/mysqld.sock' (2)
+Database seed completed.
+mysqladmin: connect to server at 'localhost' failed
+error: 'Can't connect to local server through socket '/run/mysqld/mysqld.sock' (111)'
+Check that mariadbd is running and that the socket: '/run/mysqld/mysqld.sock' exists!
+chown: invalid option -- 'r'
+Try 'chown --help' for more information.
+Database already seeded.
+240324 21:18:57 mysqld_safe Logging to syslog.
+240324 21:18:57 mysqld_safe Starting mariadbd daemon with databases from /var/lib/mysql
+mysqladmin: connect to server at 'localhost' failed
+error: 'Can't connect to local server through socket '/run/mysqld/mysqld.sock' (111)'
+Check that mariadbd is running and that the socket: '/run/mysqld/mysqld.sock' exists!

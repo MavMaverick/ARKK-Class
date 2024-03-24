@@ -1,0 +1,38 @@
+2024-03-24 21:16:12,522 INFO Set uid to user 0 succeeded
+2024-03-24 21:16:12,526 INFO supervisord started with pid 1
+2024-03-24 21:16:13,541 INFO spawned: 'mysql' with pid 7
+2024-03-24 21:16:13,545 INFO spawned: 'nginx' with pid 8
+2024-03-24 21:16:13,550 INFO spawned: 'webapp' with pid 10
+2024-03-24 21:16:14,629 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-03-24 21:16:23,575 INFO success: mysql entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2024-03-24 21:16:23,878 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:16:24,883 INFO spawned: 'webapp' with pid 179
+2024-03-24 21:16:35,302 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:16:37,321 INFO spawned: 'webapp' with pid 194
+2024-03-24 21:16:47,650 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:16:50,658 INFO spawned: 'webapp' with pid 211
+2024-03-24 21:17:00,896 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:17:01,898 INFO gave up: webapp entered FATAL state, too many start retries too quickly
+2024-03-24 21:18:53,044 WARN received SIGTERM indicating exit request
+2024-03-24 21:18:53,051 INFO waiting for mysql, nginx to die
+2024-03-24 21:18:54,075 INFO stopped: nginx (exit status 0)
+2024-03-24 21:18:55,007 INFO stopped: mysql (exit status 0)
+2024-03-24 21:18:56,676 INFO Set uid to user 0 succeeded
+2024-03-24 21:18:56,680 INFO supervisord started with pid 1
+2024-03-24 21:18:57,687 INFO spawned: 'mysql' with pid 7
+2024-03-24 21:18:57,692 INFO spawned: 'nginx' with pid 8
+2024-03-24 21:18:57,697 INFO spawned: 'webapp' with pid 10
+2024-03-24 21:18:58,812 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-03-24 21:19:07,825 INFO success: mysql entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2024-03-24 21:19:08,089 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:19:09,095 INFO spawned: 'webapp' with pid 181
+2024-03-24 21:19:19,315 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:19:21,323 INFO spawned: 'webapp' with pid 196
+2024-03-24 21:19:31,529 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:19:34,539 INFO spawned: 'webapp' with pid 212
+2024-03-24 21:19:44,766 WARN exited: webapp (exit status 1; not expected)
+2024-03-24 21:19:45,769 INFO gave up: webapp entered FATAL state, too many start retries too quickly
+2024-03-24 21:26:29,308 WARN received SIGTERM indicating exit request
+2024-03-24 21:26:29,309 INFO waiting for mysql, nginx to die
+2024-03-24 21:26:30,314 INFO stopped: nginx (exit status 0)
+2024-03-24 21:26:30,570 INFO stopped: mysql (exit status 0)
