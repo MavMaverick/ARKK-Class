@@ -1,0 +1,23 @@
+FROM python:3.9
+
+COPY . /src/
+WORKDIR /src
+
+RUN pip install -r requirements.txt
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update && apt -y install supervisor mariadb-server
+
+# Make sure scripts are executable
+RUN chmod +x /src/*.sh
+
+# Run database setup script
+RUN /src/dbsetup.sh
+
+# Copy Supervisor configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Start Supervisor when container launches
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
+#   docker run -p 5000:5000 a1-p3
