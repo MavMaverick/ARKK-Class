@@ -1,0 +1,10 @@
+FROM python:3.9
+
+# Copy the env.sh script into the container
+COPY env.sh /env.sh
+
+# Make the script executable
+RUN chmod +x /env.sh
+
+# Run the script when the container starts
+CMD ["/env.sh"]
