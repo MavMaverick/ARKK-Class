@@ -1,0 +1,16 @@
+# Build stage using Node.js image
+FROM node AS build
+# Copy entire project into the container
+COPY . /src/
+# Set the working directory
+WORKDIR /src
+
+# Install dependencies and build the React application
+RUN yarn install
+RUN yarn build
+
+# Runtime stage using Nginx image
+FROM nginx:alpine AS runtime
+
+# Copy built application from the build stage to Nginx's serve directory
+COPY --from=build /src/build/ /usr/share/nginx/html/
